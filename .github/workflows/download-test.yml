@@ -1,0 +1,25 @@
+name: Download Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Download artifacts
+        uses: ./
+        with:
+          aws_access_key_id: ${{ secrets.S3_ARTIFACT_AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.S3_ARTIFACT_AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-west-2
+          bucket: github-action-upload-test
+          name: artifact-test
+          path: artifacts
+
+      - name: List artifact contents
+        run: ll ./artifacts
+
