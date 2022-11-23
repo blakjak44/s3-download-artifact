@@ -24,7 +24,7 @@
   "dependencies": {
     "@actions/core": "^1.10.0",
     "@actions/github": "^5.1.1",
-    "s3-artifact": "^0.0.2"
+    "s3-artifact": "^0.0.6"
   },
   "devDependencies": {
     "@types/node": "^18.11.0",
